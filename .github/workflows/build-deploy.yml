@@ -23,12 +23,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java_version: [17]
+        godot_version: [4.5.1, 4.2.2]
         godot_release: [stable]
+        java_version: [17]
         android_sdk_version: [13114758]
-        include:
-          - godot_version: 4.5.1
-          - godot_version: 4.2.2
 
     steps:
       - name: Checkout repository
@@ -50,6 +48,7 @@ jobs:
         uses: docker/build-push-action@v5.0.0
         with:
           context: .
+          file: Containerfile
           build_args: |
             GODOT_VERSION=${{ matrix.godot_version }}
             GODOT_RELEASE=${{ matrix.godot_release }}
