@@ -49,7 +49,7 @@ jobs:
         with:
           context: .
           file: Containerfile
-          build_args: |
+          build-args: |
             GODOT_VERSION=${{ matrix.godot_version }}
             GODOT_RELEASE=${{ matrix.godot_release }}
             ANDROID_SDK_VERSION=${{ matrix.android_sdk_version }}
